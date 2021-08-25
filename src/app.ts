@@ -1,5 +1,6 @@
 import { join } from "path";
 import AutoLoad, { AutoloadPluginOptions } from "fastify-autoload";
+import Static from "fastify-static";
 import { FastifyPluginAsync } from "fastify";
 
 export type AppOptions = {
@@ -8,10 +9,10 @@ export type AppOptions = {
 
 const app: FastifyPluginAsync<AppOptions> = async (
   fastify,
-  opts,
+  opts
 ): Promise<void> => {
   // Place here your custom code!
-
+  void fastify.register(Static, { root: join(__dirname, "public") });
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins
