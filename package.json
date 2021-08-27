@@ -8,22 +8,30 @@
   },
   "scripts": {
     "test": "npm run build:ts && tsc -p test/tsconfig.test.json && cross-env TS_NODE_FILES=true tap --ts test/**/*.test.ts",
-    "start": "npm run build:ts && fastify start -l info dist/app.js",
-    "build:ts": "rm -r dist && tsc && cd ui && npm run build && cp -r dist ../dist/public && cd -",
+    "start": "npm run build:ts && node dist/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix ui && npm db:deploy",
+    "build:ts": "rimraf dist && tsc && npm run build --prefix ui && cp -r ui/dist dist/public",
+    "db:migrate": "prisma migrate dev --name prod",
+    "db:deploy": "prisma migrate deploy && prisma db seed --preview-feature",
+    "dev:db:seed": "npm run db:migrate && prisma db seed --preview-feature",
     "dev": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"tsc -w\" \"fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/asubramanianr/night-owl.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "night-owl",
+    "book CMS"
+  ],
+  "author": "Arun Subramanian R",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/asubramanianr/night-owl/issues"
   },
   "homepage": "https://github.com/asubramanianr/night-owl#readme",
   "dependencies": {
+    "@prisma/client": "^2.30.0",
     "fastify": "^3.0.0",
     "fastify-autoload": "^3.3.1",
     "fastify-cli": "^2.13.0",
@@ -37,8 +45,13 @@
     "concurrently": "^6.0.0",
     "cross-env": "^7.0.3",
     "fastify-tsconfig": "^1.0.1",
+    "prisma": "^2.30.0",
+    "rimraf": "^3.0.2",
     "tap": "^15.0.9",
     "ts-node": "^10.0.0",
     "typescript": "^4.2.4"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }

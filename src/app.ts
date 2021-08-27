@@ -11,7 +11,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   fastify,
   opts
 ): Promise<void> => {
-  // Place here your custom code!
+  // Static route plugin for solidjs frontend
   void fastify.register(Static, { root: join(__dirname, "public") });
   // Do not touch the following lines
 
