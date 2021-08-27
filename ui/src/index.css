@@ -1,13 +1,54 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+/* App Level Variables */
+:root {
+  /* Brand Colors */
+  --color-brand: #ffcd33;
+  --color-brand-rgb: 255, 205, 51;
+
+  --color-secondary: #f4511e;
+  --color-secondary-rgb: 244, 81, 30;
+
+  /* Neutral Colors */
+  --color-neutral-10: #ffffff;
+  --color-neutral-20: #f6f6f9;
+  --color-neutral-30: #e0e0e6;
+  --color-neutral-40: #b0afb6;
+  --color-neutral-50: #8d8c95;
+  --color-neutral-60: #6a6973;
+  --color-neutral-70: #474552;
+  --color-neutral-80: #333333;
+  --color-neutral-90: #0c0c0c;
+  --color-neutral-100: #000000;
+
+  --color-neutral-10-rgb: 255, 255, 255;
+  --color-neutral-100-rgb: 0, 0, 0;
+
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Font Sizes */
+  --fs-xs: 0.96rem;
+  --fs-sm: 1.28rem;
+  --fs-rg: 1.6rem;
+  --fs-md: 1.92rem;
+  --fs-lg: 2.752rem;
+  --fs-xl: 3.84rem;
+
+  /* Line Height */
+  --lh-sm: 1rem;
+  --lh-rg: 1.6rem;
+  --lh-lg: 2.4rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-neutral-90);
+  color: var(--color-neutral-20);
+  font-size: 62.5%;
+  font-family: Inter, Arial, sans-serif;
 }
