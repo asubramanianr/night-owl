@@ -1,0 +1,23 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-brand);
+  padding: var(--fs-xs) var(--fs-rg);
+  z-index: 10;
+}
+
+.icon {
+  width: var(--fs-md);
+}
+
+.title {
+  display: inline;
+  margin: 0;
+  padding-left: 0.5rem;
+  font-size: var(--fs-md);
+}
+
+.anchor {
+  text-decoration: none;
+  color: var(--color-neutral-100);
+}
