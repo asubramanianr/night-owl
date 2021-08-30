@@ -52,3 +52,7 @@ body {
   font-size: 62.5%;
   font-family: Inter, Arial, sans-serif;
 }
+
+hr {
+  background: var(--color-neutral-40);
+}

@@ -2,7 +2,7 @@ import type { Component } from "solid-js";
 import { createResource, Show } from "solid-js";
 import { useParams } from "solid-app-router";
 
-// import styles from "./BookDetail.module.css";
+import styles from "./BookDetail.module.css";
 import type { Book } from "../../types";
 
 const BookDetail: Component = () => {
@@ -12,14 +12,19 @@ const BookDetail: Component = () => {
   );
   return (
     <Show when={!book.loading} fallback={<div>Loading...</div>}>
-      <div>
-        <div>
-          <img src={book().cover} alt={book().title} />
+      <div class={styles.container}>
+        <div class={styles.cover}>
+          <img class={styles.image} src={book().cover} alt={book().title} />
+          <a href={book().website} class={styles.btn}>go to website</a>
         </div>
-        <div>
-          <h2>{book().title}</h2>
-          <p>{"by " + book().author}</p>
-          <p>{book().description}</p>
+        <div class={styles.detail}>
+          <h1 /*class={styles.title}*/>{book().title}</h1>
+          <p /*class={styles.author}*/>{"by " + book().author}</p>
+          <hr />
+          <p /*class={styles.isbn}*/>{"ISBN: " + book().isbn}</p>
+          <p /*class={styles.pages}*/>{"Pages: " + book().pages}</p>
+          <hr />
+          <p /*class={styles.description}*/>{book().description}</p>
         </div>
       </div>
     </Show>
